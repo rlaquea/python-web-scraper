@@ -34,9 +34,52 @@ pip install -r requirements.txt
 - openpyxl==3.1.2
 - lxml==4.9.3
 
+## Quick Start
+
+### Using the Command-Line Script
+
+The easiest way to use the scraper is with the `scrape.py` script:
+
+1. Copy the example configuration:
+```bash
+cp config.example.json config.json
+```
+
+2. Edit `config.json` with your target URLs and CSS selectors
+
+3. Run the scraper:
+```bash
+python scrape.py
+```
+
+Optional arguments:
+- `--config FILE`: Specify a different config file
+- `--output FILE`: Override the output filename
+- `--no-update`: Append data instead of updating existing entries
+- `--verbose`: Show detailed output
+
+### Configuration File Format
+
+Create a `config.json` file:
+
+```json
+{
+  "output_file": "product_data.xlsx",
+  "products": [
+    {
+      "name": "Product Name",
+      "url": "https://example.com/product",
+      "name_selectors": ["h1.product-title"],
+      "price_selectors": [".price"],
+      "stock_selectors": [".stock-status"]
+    }
+  ]
+}
+```
+
 ## Usage
 
-### Basic Usage
+### Basic Usage (Python API)
 
 ```python
 from web_scraper import WebScraper, ExcelExporter
