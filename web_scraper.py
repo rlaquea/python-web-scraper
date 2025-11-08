@@ -252,7 +252,8 @@ class ExcelExporter:
                 try:
                     if cell.value:
                         max_length = max(max_length, len(str(cell.value)))
-                except Exception:
+                except (TypeError, AttributeError):
+                    # Skip cells that can't be converted to string
                     pass
             adjusted_width = min(max_length + 2, 50)
             worksheet.column_dimensions[column_letter].width = adjusted_width
@@ -261,7 +262,7 @@ class ExcelExporter:
         workbook.save(self.filename)
         print(f"Data exported to {self.filename}")
     
-    def read_excel(self) -> List[Dict[str, str]]:
+    def read_excel(self) -> List[Dict[str, Optional[Any]]]:
         """
         Read existing data from Excel file.
         
