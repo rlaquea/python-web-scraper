@@ -11,7 +11,7 @@ from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Font, PatternFill, Alignment
 import os
 from datetime import datetime
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Any
 
 
 class WebScraper:
@@ -145,7 +145,7 @@ class WebScraper:
     
     def scrape_multiple_products(
         self,
-        products: List[Dict[str, any]]
+        products: List[Dict[str, Any]]
     ) -> List[Dict[str, Optional[str]]]:
         """
         Scrape data for multiple products.
