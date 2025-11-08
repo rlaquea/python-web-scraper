@@ -1,0 +1,42 @@
+{
+  "output_file": "product_data.xlsx",
+  "products": [
+    {
+      "name": "Product 1",
+      "url": "https://www.example-store.com/product1",
+      "name_selectors": [
+        "h1.product-title",
+        "h1[itemprop='name']",
+        ".product-name"
+      ],
+      "price_selectors": [
+        "span.price-current",
+        ".product-price",
+        "[itemprop='price']",
+        "meta[property='product:price:amount']"
+      ],
+      "stock_selectors": [
+        "div.availability",
+        ".stock-status",
+        "[itemprop='availability']",
+        ".inventory-message"
+      ]
+    },
+    {
+      "name": "Product 2",
+      "url": "https://www.another-store.com/product2",
+      "name_selectors": [
+        "h1.product-title",
+        ".product-name"
+      ],
+      "price_selectors": [
+        ".price",
+        "span.product-price"
+      ],
+      "stock_selectors": [
+        ".availability",
+        ".stock-info"
+      ]
+    }
+  ]
+}
